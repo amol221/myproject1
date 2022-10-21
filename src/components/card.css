@@ -1,0 +1,50 @@
+.box{
+    height: 300px;
+    width: 200px;
+    overflow: hidden;
+    box-shadow: 0px 0px 5px -3px;
+    margin-left: 5vh;
+    margin-right: 10vh;
+    margin-bottom: 30vh;
+    transition: 0.3s;
+    animation: ease-in;
+}
+.box:hover{
+    transform: scale(1.1);
+    box-shadow: 0px 0px 15px 0px;
+}
+.image{
+    overflow: hidden;
+    width: 200px;
+    height: 150px;
+}
+.boxcontent{
+    margin: 1rem;
+    margin-top: 0.3rem
+}
+h5,p{
+    margin: 0;
+    padding: 0;
+}
+.title{
+    margin-bottom: 0.5rem;
+}
+.btn{
+   display: flex;
+  margin-right: 20vh;
+}
+
+.btn button{
+    padding: 0.5rem;
+    background: #fff;
+    border: none;
+    transition: 0.2s;
+    margin-right: 30vh;
+    
+}
+Link{
+    background: #fff;
+    color: #1b9b;
+    transition:0.3s;
+    border: none;
+}

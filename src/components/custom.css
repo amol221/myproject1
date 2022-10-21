@@ -1,0 +1,9 @@
+.custom{
+    background: rgb(56, 55, 55);
+    padding: 20px;
+    min-height: 200px;
+    margin-bottom: 100px;
+}
+.content{
+    color: aliceblue;
+}
