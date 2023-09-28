@@ -1,171 +1,26 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
-import computers from './../computers.avif'
+import {Card} from 'react-bootstrap'
+
+
 import'./card.css'
 
-const card = () => {
+const card = (props) => {
+  console.log(props);
   return (
   
-    <div className="card-container">
-            <div className="row">
-                <div className="col-md-3">
-                    <div className="box">
-                        <img className='image' src={computers} alt="" />
-                        <div className="boxcontent">
-                            <div className="title">
-                                <h3>computer title</h3>
-                            </div>
-                            <div className="intro">
-                                <p>this is cooldfuwhfwbvbdv</p>
-                            </div>
-                        </div>
-                        <div className="btn">
-                            <button>
-                                <Link> View_more</Link>
-                            </button>
-                        </div>
-
-                    </div>
-                </div>
-                <div className="col-md-3">
-                    <div className="box">
-                        <img className='image' src={computers} alt="" />
-                        <div className="boxcontent">
-                            <div className="title">
-                                <h3>computer title</h3>
-                            </div>
-                            <div className="intro">
-                                <p>this is cooldfuwhfwbvbdv</p>
-                            </div>
-                        </div>
-                        <div className="btn">
-                            <button>
-                                <Link> View_more</Link>
-                            </button>
-                        </div>
-
-                    </div>
-                </div>
-                <div className="col-md-3">
-                    <div className="box">
-                        <img className='image' src={computers} alt="" />
-                        <div className="boxcontent">
-                            <div className="title">
-                                <h3>computer title</h3>
-                            </div>
-                            <div className="intro">
-                                <p>this is cooldfuwhfwbvbdv</p>
-                            </div>
-                        </div>
-                        <div className="btn">
-                            <button>
-                                <Link> View_more</Link>
-                            </button>
-                        </div>
-
-                    </div>
-                </div>
-                <div className="col-md-3">
-                    <div className="box">
-                        <img className='image' src={computers} alt="" />
-                        <div className="boxcontent">
-                            <div className="title">
-                                <h3>computer title</h3>
-                            </div>
-                            <div className="intro">
-                                <p>this is cooldfuwhfwbvbdv</p>
-                            </div>
-                        </div>
-                        <div className="btn">
-                            <button>
-                                <Link> View_more</Link>
-                            </button>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-            <div className="row">
-                <div className="col-md-3">
-                    <div className="box">
-                        <img className='image' src={computers} alt="" />
-                        <div className="boxcontent">
-                            <div className="title">
-                                <h3>computer title</h3>
-                            </div>
-                            <div className="intro">
-                                <p>this is cooldfuwhfwbvbdv</p>
-                            </div>
-                        </div>
-                        <div className="btn">
-                            <button>
-                                <Link> View_more</Link>
-                            </button>
-                        </div>
-
-                    </div>
-                </div>
-                <div className="col-md-3">
-                    <div className="box">
-                        <img className='image' src={computers} alt="" />
-                        <div className="boxcontent">
-                            <div className="title">
-                                <h3>computer title</h3>
-                            </div>
-                            <div className="intro">
-                                <p>this is cooldfuwhfwbvbdv</p>
-                            </div>
-                        </div>
-                        <div className="btn">
-                            <button>
-                                <Link> View_more</Link>
-                            </button>
-                        </div>
-
-                    </div>
-                </div>
-                <div className="col-md-3">
-                    <div className="box">
-                        <img className='image' src={computers} alt="" />
-                        <div className="boxcontent">
-                            <div className="title">
-                                <h3>computer title</h3>
-                            </div>
-                            <div className="intro">
-                                <p>this is cooldfuwhfwbvbdv</p>
-                            </div>
-                        </div>
-                        <div className="btn">
-                            <button>
-                                <Link> View_more</Link>
-                            </button>
-                        </div>
-
-                    </div>
-                </div>
-                <div className="col-md-3">
-                    <div className="box">
-                        <img className='image' src={computers} alt="" />
-                        <div className="boxcontent">
-                            <div className="title">
-                                <h3>computer title</h3>
-                            </div>
-                            <div className="intro">
-                                <p>this is cooldfuwhfwbvbdv</p>
-                            </div>
-                        </div>
-                        <div className="btn">
-                            <button>
-                                <Link> View_more</Link>
-                            </button>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-    </div>
-
+    
+    <Card className='cards'>
+      <a className='card-link' href={props.link}>
+      <Card.Img className='image'variant="top" style={{height:'28vh'}}src={props.imgsrc} />
+      <Card.Body className='card-text'>
+        {props.cardtitle}
+      </Card.Body>
+      </a>
+    </Card>
+  
   )
 }
 
 export default card
+
+

@@ -1,57 +1,25 @@
 import React from 'react'
-import'./footer.css'
+import{Container,Row,Col} from "react-bootstrap"
 
 const Footer = () => {
   return (
-    <div className='main-footer'>
-        <div className="container">
-            <div className="row">
-                <div className="col-md-3">
-                    <h4>this is footer</h4>
-                    <ul className="list-unstyled">
-                        <li>seee yaa</li>
-                        <li>seee yaa</li>
-                        <li>seee yaa</li>
-                        <li>seee yaa</li>
-                    </ul>
-                </div>
-                <div className="col-md-3">
-                    <h4>this is footer</h4>
-                    <ul className="list-unstyled">
-                        <li>seee yaa</li>
-                        <li>seee yaa</li>
-                        <li>seee yaa</li>
-                        <li>seee yaa</li>
-                    </ul>
-                </div>
-                <div className="col-md-3">
-                    <h4>this is footer</h4>
-                    <ul className="list-unstyled">
-                        <li>seee yaa</li>
-                        <li>seee yaa</li>
-                        <li>seee yaa</li>
-                        <li>seee yaa</li>
-                    </ul>
-                </div>
-                <div className="col-md-3">
-                    <h4>this is footer</h4>
-                    <ul className="list-unstyled">
-                        <li>seee yaa</li>
-                        <li>seee yaa</li>
-                        <li>seee yaa</li>
-                        <li>seee yaa</li>
-                    </ul>
-                </div>
-            </div>
-            <hr className='footerline'/>
-            <div className="row">
-               <p className="col-sm">
-                &copy;{new Date().getFullYear()} this is copyrighted website | all right reserves | privacy
-               </p>
-            </div>
-        </div>
-      
-    </div>
+    <footer
+      style={{
+        
+        width:"100%",
+        position:"relative",
+        bottom: 0,
+        displex:"flex",
+        justifyContent:"center"
+      }}
+      >
+        <Container>
+          <Row>
+           <Col className="text-center py-3">Copyright &copy; Amol_patil</Col>  
+          </Row>
+
+        </Container>
+    </footer>
   )
 }
 

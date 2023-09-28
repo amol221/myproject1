@@ -1,126 +1,131 @@
-import React, { Component } from 'react'
+import axios from 'axios'
+import React, { Component, useState } from 'react'
+import { Form } from 'react-bootstrap'
+import Errormsg from './Errormsg'
+import Loading from './Loading'
 import "./register.css"
-export default class Alumni_registration extends Component {
-  render() {
-    return (
-      <>
-       <section class="h-100 bg-dark">
-  <div class="container py-5 h-100">
-    <div class="row d-flex justify-content-center align-items-center h-100">
-      <div class="col">
-        <div class="card card-registration my-4">
-          <div class="row g-0">
-            <div class="col-xl-6 d-none d-xl-block">
-              <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/img4.webp"
-                alt="Sample" class="img-fluid" />
-            </div>
-            <div class="col-xl-6">
-              <div class="card-body p-md-5 text-black">
-                <h3 class="mb-5 text-uppercase">Student registration form</h3>
+const Alumni_registration =() => {
+  const [name, setName] = useState("")
+  const [email, setEmail] = useState("")
+  const [batch, setBatch] = useState("")
+  const [city, setCity] = useState("")
+  const [mobno, setMobno] = useState("")
+  const [dob, setDob] = useState("")
+  const [aadhar, setAadhar] = useState("")
+  const [password, setPassword]= useState("")
+  const [confirmpassword, setComfirmPassword]= useState("")
+  const [message, setMessage]= useState(null)
+  const [error, setError] = useState(false)
+  const [loading, setLoading] = useState(false);
 
-                <div class="row">
-                  <div class="col-md-6 mb-4">
-                    <div class="form-outline">
-                      <input type="text" id="form3Example1m" class="form-control form-control-lg" placeholder='First name' />
-                    
-                    </div>
-                  </div>
-                  <div class="col-md-6 mb-4">
-                    <div class="form-outline">
-                      <input type="text" id="form3Example1n" class="form-control form-control-lg" placeholder='Last Name'/>
-                  
-                    </div>
-                  </div>
-                </div>
+  const submitHandler = async(e)=>{
+    e.preventDefault();
+    if(password != confirmpassword){
+      setMessage("passwords not matching");
+    }
+    else{
+          setMessage(null)
+          try {
+            const config = {
+              headers:{
+                "Content-Type":"application/json",
+              },
+            };
+            setLoading(true);
 
-                <div class="row">
-                 
-                  <div class="col-md-6 mb-4">
-                    <div class="form-outline">
-                      <input type="text" id="form3Example1n1" class="form-control form-control-lg"placeholder="father/'s name" />
-                     
-                    </div>
-                  </div>
-                </div>
+            const { data } =await axios.post("/api/users",{"mobno":mobno,"name":name,"city":city,
+             "batch":batch,"dob":dob, "aadhar":aadhar, "email":email,"password":password},config);
+            console.log(data);
+            localStorage.setItem("userInfo",JSON.stringify(data));
+            setLoading(false); 
+            setError(false);
 
-                <div class="form-outline mb-4">
-                  <input type="text" id="form3Example8" class="form-control form-control-lg" placeholder='Adress' />
-              
-                </div>
-
-                <div class="d-md-flex justify-content-start align-items-center mb-4 py-2">
-
-                  <h6 class="mb-0 me-4">Gender: </h6>
-
-                  <div class="form-check form-check-inline mb-0 me-4">
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="femaleGender"
-                      value="option1" />
-                    <label class="form-check-label" for="femaleGender">Female</label>
-                  </div>
-
-                  <div class="form-check form-check-inline mb-0 me-4">
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="maleGender"
-                      value="option2" />
-                    <label class="form-check-label" for="maleGender">Male</label>
-                  </div>
-                 </div>
-                <div class="row">
-                  <div class="col-md-6 mb-4">
-
-                    <select class="select">
-                      <option value="1">Batch</option>
-                      <option value="2">Option 1</option>
-                      <option value="3">Option 2</option>
-                      <option value="4">Option 3</option>
-                    </select>
-
-                  </div>
-                  <div class="col-md-6 mb-4">
-
-                    <select class="select">
-                      <option value="1">City</option>
-                      <option value="2">Option 1</option>
-                      <option value="3">Option 2</option>
-                      <option value="4">Option 3</option>
-                    </select>
-
-                  </div>
-                </div>
-
-                <div class="form-outline mb-4">
-                  <input type="text" id="form3Example9" class="form-control form-control-lg" placeholder='Phone' />
-                 
-                </div>
-
-                <div class="form-outline mb-4">
-                  <input type="text" id="form3Example90" class="form-control form-control-lg" placeholder='DOB' />
             
-                </div>
-
-                <div class="form-outline mb-4">
-                  <input type="text" id="form3Example99" class="form-control form-control-lg" placeholder='Aadhar' />
-                  
-                </div>
-
-                <div class="form-outline mb-4">
-                  <input type="email" id="form3Example97" class="form-control form-control-lg" placeholder='Email id'/>
-                  
-                </div>
-
-                <div class="d-flex justify-content-end pt-3">
-                  <button type="button" class="btn btn-light btn-lg">Reset</button>
-                  <button type="button" class="btn btn-warning btn-lg ms-2">Submit</button>
-                </div>
-
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-      </>
-    )
+          } catch (error) {
+            setError(error.response.data.message);
+            setLoading(false); 
+          }
+    }
+    console.log(email);
   }
-}
+  return (
+    <>
+        <section className="h-100">
+            {loading && <Loading />}
+            <Form onSubmit={submitHandler}>
+                <div className="container py-5 h-100">
+                    <div className="row d-flex justify-content-center align-items-center h-100">
+                        <div className="col">
+                            <div className="card card-registration my-4">
+                                <div className="row g-0">
+                                    <div className="col-xl-6 d-none d-xl-block">
+                                        <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/img4.webp" alt="Sample" className="img-fluid" />
+                                    </div>
+                                    <div className="col-xl-6">
+                                        <div className="card-body p-md-5 text-black">
+                                            <h3 className="mb-5 text-uppercase">Alumni registration form</h3>
+
+                                            {/* Personal Details */}
+                                            <div className="section">
+                                                <h5>Personal Details</h5>
+                                                <div className="form-outline mb-4">
+                                                    <input type="text" id="form3Example1m" className="form-control form-control-lg" value={name} placeholder='Name' onChange={(e) => setName(e.target.value)} />
+                                                </div>
+                                                <div className="form-outline mb-4">
+                                                    <input type="text" id="form3Example90" className="form-control form-control-lg" value={dob} placeholder='DOB' onChange={(e) => setDob(e.target.value)} />
+                                                </div>
+                                                <div className="form-outline mb-4">
+                                                    <input type="email" id="form3Example97" className="form-control form-control-lg" value={email} placeholder='Email id' onChange={(e) => setEmail(e.target.value)} />
+                                                </div>
+                                            </div>
+
+                                            {/* Contact Details */}
+                                            <div className="section mt-3">
+                                                <h5>Contact Details</h5>
+                                                <div className="row">
+                                                    <div className="col-md-6 mb-4">
+                                                        <input type="text" id="form3Exampe" className="form-control" value={batch} placeholder='Batch' onChange={(e) => setBatch(e.target.value)} />
+                                                    </div>
+                                                    <div className="col-md-6 mb-4">
+                                                        <input type="text" id="form3Example9" className="form-control" value={city} placeholder='City' onChange={(e) => setCity(e.target.value)} />
+                                                    </div>
+                                                </div>
+                                                <div className="form-outline mb-4">
+                                                    <input type="text" id="form3Exampl9" className="form-control form-control-lg" value={mobno} placeholder='Phone' onChange={(e) => setMobno(e.target.value)} />
+                                                </div>
+                                            </div>
+
+                                            {/* Other Details */}
+                                            <div className="section mt-3">
+                                                <h5>Other Details</h5>
+                                                <div className="form-outline mb-4">
+                                                    <input type="text" id="form3Example" className="form-control form-control-lg" value={aadhar} placeholder='Aadhar' onChange={(e) => setAadhar(e.target.value)} />
+                                                </div>
+                                                <div className="form-outline mb-4">
+                                                    <input type="password" id="form3Example7" className="form-control form-control-lg" value={password} placeholder='Password' onChange={(e) => setPassword(e.target.value)} />
+                                                </div>
+                                                <div className="form-outline mb-4">
+                                                    <input type="password" id="form3Example990" className="form-control form-control-lg" value={confirmpassword} placeholder='Confirm Password' onChange={(e) => setComfirmPassword(e.target.value)} />
+                                                </div>
+                                            </div>
+
+                                            {message && <Errormsg variant="danger">{message}</Errormsg>}
+                                            {error && <Errormsg variant='danger'>{error}</Errormsg>}
+                                            
+                                            <div className="d-flex1 justify-content-end mt-3">
+                                                <button type="submit" className="btn btn-warning btn-lg ms-2">Submit</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </Form>
+        </section>
+    </>
+)
+
+  }
+export default Alumni_registration;

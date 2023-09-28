@@ -1,17 +1,17 @@
 .header{
     position: relative;
 }
-.header img{
+.header img {
     height: 100vh;
-    width : 100vh;
+    width: -webkit-fill-available;
     object-fit: cover;
-  
 }
 
 .headercontent{
     position: absolute;
     top: 20%;
     left: 3%;
+    right:40% ;
     color: rgb(16, 15, 15);
 }
 .headercontent h5{
@@ -21,17 +21,30 @@
     font-size: 50px;
     font-style:italic;
     font-weight: 600;
+    
 }
-.btn{
+.btn-i{
     border: 1px solid #fff;
     transition: 0.3s;
     color:#fff;
-   margin-left: 20vh;
-   margin-top: 10px;
+    display:flex;
+    margin-right: 0%;
+    background: fixed;
+    border-radius: 0.5em;
+    padding: 5px 5px;
+
+    
+   
 
 }
-.btn:hover{
+.btn-i:hover{
   color: black;
   background:#fff ;
 
+}
+.wrapper{
+    display: grid;
+    grid-template-columns:repeat(auto-fit , minmax(12rem,16rem));
+    gap: 2rem;
+    justify-content: center;
 }

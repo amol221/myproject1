@@ -8,13 +8,11 @@ export default class Contact extends Component {
       <>  
       <div>
         <h1>Contact
-        fvrese
       </h1>
      
     
 
-    
-      <Link to='/contact/new'>Contact1</Link>
+  
      
       </div>
       </>

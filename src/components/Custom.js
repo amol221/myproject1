@@ -7,8 +7,8 @@ const custom = () => {
    <section className='custom'>
    <div className="container">
     <div className="content">
-        <h5>why you should join us </h5>
-        <p> you first join us i will tell you letter why should you join us</p>
+        <h5>why you should join us! </h5>
+        <p> we are reuniting peoples</p>
     </div>
    </div>
    </section>

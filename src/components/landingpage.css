@@ -1,0 +1,41 @@
+.main{
+    min-height: 93vh;
+    display: flex;
+    align-items :center;
+    background-image: url("D:\mydata\myproject1\src\banner2.jpg");
+    background-position: center;
+    background-size: cover;
+}
+.title{
+    font-size: 9vh;
+    color: rgb(13, 110, 189);
+    font-weight: 500;
+   
+}
+.subtitle{
+    font-size: 5vh;
+    padding-top: 10px;
+}
+.intro-text{
+    width: 100%;
+    text-align: center;
+}
+.buttoncontainer{
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-evenly;
+}
+.landingbtn{
+    width: 20vh;
+    height: 8vh;
+   
+}
+
+@media only screen and (min-width:1200px){
+    .buttoncontainer{
+        padding : 0 100px;
+    }
+    .title{
+        padding :0 100px;
+    }
+}

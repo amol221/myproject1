@@ -1,16 +1,56 @@
+/* /* Base styles */
 .card-registration .select-input.form-control[readonly]:not([disabled]) {
     font-size: 1rem;
     line-height: 2.15;
     padding-left: .75em;
     padding-right: .75em;
-    }
-    .card-registration .select-arrow {
+}
+
+.card-registration .select-arrow {
     top: 13px;
+}
+
+/* Button enhancements */
+.btn {
+    transition: all 0.3s ease;  /* smooth transition */
+    border-radius: 5px;
+}
+
+.btn:hover {
+    background-color: #ffcc00; /* Slightly different shade for hover */
+    color: black;
+    border-color: #ffcc00;
+}
+
+.btn-warning {
+    background-color: #ffc107;
+    border-color: #ffc107;
+    color: #333;
+}
+
+.d-flex1 {
+    display: -ms-grid;
+}
+
+/* Responsiveness */
+@media only screen and (max-width: 768px) {
+    .card-registration {
+        margin: 0 10px;
     }
-   .btn:focus-visible {
-    color: yellow;
-    background-color: var(--bs-btn-hover-bg);
-    border-color:black;
-    outline: 0;
-    box-shadow: var(--bs-btn-focus-box-shadow);
+}
+
+@media only screen and (max-width: 480px) {
+    .card-registration {
+        margin: 0 5px;
+    }
+}
+
+/* New styles for aesthetics */
+body {
+    font-family: 'Arial', sans-serif; /* A more readable font */
+}
+
+.card-registration {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  /* subtle shadow */
+    border-radius: 10px; /* rounded corners */
 }

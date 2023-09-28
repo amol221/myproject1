@@ -1,15 +1,21 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 
 
-export default class Contact1 extends Component {
+export default class Contact extends Component {
   render() {
     return (
-      <>
+      <>  
       <div>
-        <h1>contact 1</h1>
-        </div>
-        </>
+        <h1>Contact
+      </h1>
+     
+    
 
+  
+     
+      </div>
+      </>
     )
   }
 }
